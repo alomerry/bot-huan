@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bc782b96-edbd-4c77-b061-6045bfe941f2" name="tencent-ubuntu">
+        <fileTransfer rootFolder="/home/ubuntu/workspace/bot-huan" accessType="SFTP" host="bot.alomerry.com" port="22" sshConfigId="a130b280-01e9-47f1-8f2e-6c8c7f83f712" sshConfig="ubuntu@bot.alomerry.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
