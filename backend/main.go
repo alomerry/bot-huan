@@ -15,6 +15,7 @@ func main() {
 
 	r.GET("/ping", controller.Ping)
 	r.POST("/webhook", controller.Webhook())
+	r.POST("/report", controller.Report)
 
 	graceful.Run(fmt.Sprintf(":%s", "4376"), 5*time.Second, r)
 }
