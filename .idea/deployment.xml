@@ -8,6 +8,9 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/backend/core/env.go" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
