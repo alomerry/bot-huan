@@ -28,12 +28,14 @@ func Report(c *gin.Context) {
 		// TODO log
 		fmt.Println(err)
 	}
-	khlSession.MessageCreate(&khl.MessageCreate{
-		MessageCreateBase: khl.MessageCreateBase{
-			TargetID: "1655514156713483",
-			Content:  "(met)1712811410(met) " + reportInfo.WorkIP,
-			Quote:    "d83c799e-76c9-4a21-94c2-0c1bb2e88635",
-			Type:     khl.MessageTypeText,
-		},
-	})
+	if reportInfo.WorkIP != "" {
+		khlSession.MessageCreate(&khl.MessageCreate{
+			MessageCreateBase: khl.MessageCreateBase{
+				TargetID: "1655514156713483",
+				Content:  "(met)1712811410(met) " + reportInfo.WorkIP,
+				Quote:    "d83c799e-76c9-4a21-94c2-0c1bb2e88635",
+				Type:     khl.MessageTypeText,
+			},
+		})
+	}
 }

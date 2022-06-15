@@ -1,5 +1,6 @@
 #!/bin/zsh
-ips=$(ifconfig|grep 'inet'|grep -v '127.0.0.1'|cut -d: -f2|awk '{ print $2}'|sed '/^$/d'|grep '192')
+# PATH=<本地环境的 PATH>
+ips=$(ifconfig|grep 'inet'|grep -v '127.0.0.1'|cut -d: -f2|awk '{ print $2}'|sed '/^$/d'|grep '192.168.5')
 curl --location --request POST 'http://bot.alomerry.com:4376/report' \
 --header 'Content-Type: application/json' \
 --data-raw '{"workIP":"'$ips'"}'
