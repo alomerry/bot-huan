@@ -1,0 +1,18 @@
+FROM phusion/baseimage:focal-1.1.0
+
+ARG GOLANG_VERSION=1.18
+
+ENV GOLANG_DOWNLOAD_URL https://mirrors.ustc.edu.cn/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
+RUN curl -L ${GOLANG_DOWNLOAD_URL} -o golang.tar.gz && \
+    tar -C /usr/local -xf golang.tar.gz && \
+    rm golang.tar.gz
+
+ENV GOPATH /app
+ENV GOROOT /usr/local/go
+ENV PATH ${GOPATH}/bin:${GOROOT}/bin:$PATH
+
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin && \
+    chmod -R 777 ${GOPATH}
+
+ENV GO111MODULE auto
+ENV GOPROXY https://goproxy.cn,direct

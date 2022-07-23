@@ -1,0 +1,15 @@
+FROM phusion/baseimage:focal-1.1.0
+
+VOLUME /root/build/
+
+WORKDIR /root/app
+
+ENV KAIHEILA_BOT_TOKEN token
+ENV KAIHEILA_BOT_VERIFY_TOKEN verify-token
+ENV KAIHEILA_BOT_ENCRYPT_KEY encrypt-key
+
+COPY /root/build/main /root/app
+
+EXPOSE 1701
+
+CMD ./main
