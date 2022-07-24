@@ -1,18 +1,13 @@
 FROM phusion/baseimage:focal-1.1.0
 
-ARG GOLANG_VERSION=1.18
+VOLUME /build
 
-ENV GOLANG_DOWNLOAD_URL https://mirrors.ustc.edu.cn/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz
-RUN curl -L ${GOLANG_DOWNLOAD_URL} -o golang.tar.gz && \
-    tar -C /usr/local -xf golang.tar.gz && \
-    rm golang.tar.gz
+WORKDIR /root/app
 
-ENV GOPATH /app
-ENV GOROOT /usr/local/go
-ENV PATH ${GOPATH}/bin:${GOROOT}/bin:$PATH
+ENV KAIHEILA_BOT_TOKEN token
+ENV KAIHEILA_BOT_VERIFY_TOKEN verify-token
+ENV KAIHEILA_BOT_ENCRYPT_KEY encrypt-key
 
-RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin && \
-    chmod -R 777 ${GOPATH}
+EXPOSE 4376
 
-ENV GO111MODULE auto
-ENV GOPROXY https://goproxy.cn,direct
+CMD cp /build/main /root/app/ && /root/app/main
