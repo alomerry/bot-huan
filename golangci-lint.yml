@@ -1,0 +1,7 @@
+run:
+  deadline: 3m
+  modules-download-mode: vendor
+
+linters-settings:
+  gofmt:
+    simplify: false

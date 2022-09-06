@@ -2,7 +2,7 @@ package controller
 
 import (
 	"bot-huan/core"
-	"bot-huan/core/component"
+	component2 "bot-huan/core/component"
 	"bot-huan/core/log"
 	"github.com/gin-gonic/gin"
 	"github.com/lonelyevil/khl"
@@ -24,7 +24,7 @@ func messageHan(ctx *khl.KmarkdownMessageContext) {
 	}
 	switch {
 	case strings.HasPrefix(ctx.Common.Content, "-ping"):
-		component.SubmitTask(func() {
+		component2.SubmitTask(func() {
 			ctx.Session.MessageCreate(&khl.MessageCreate{
 				MessageCreateBase: khl.MessageCreateBase{
 					TargetID: ctx.Common.TargetID,
@@ -35,7 +35,7 @@ func messageHan(ctx *khl.KmarkdownMessageContext) {
 			})
 		})
 	case strings.HasPrefix(ctx.Common.Content, "-roll"):
-		component.SubmitTask(func() {
+		component2.SubmitTask(func() {
 			ctx.Session.MessageCreate(&khl.MessageCreate{
 				MessageCreateBase: khl.MessageCreateBase{
 					TargetID: ctx.Common.TargetID,
@@ -46,13 +46,13 @@ func messageHan(ctx *khl.KmarkdownMessageContext) {
 			})
 		})
 	case strings.HasPrefix(ctx.Common.Content, "-music"):
-		component.SubmitTask(func() {
+		component2.SubmitTask(func() {
 			page := uint8(1)
 			// TODO 并发
 		RETRY:
 			searKey := strings.TrimPrefix(ctx.Common.Content, "-music ")
-			musicId, musicPicUrl, musicName := component.NeteaseAPI.Search(searKey, page)
-			musicUrl := component.NeteaseAPI.GetSongUrl(musicId)
+			musicId, musicPicUrl, musicName := component2.NeteaseAPI.Search(searKey, page)
+			musicUrl := component2.NeteaseAPI.GetSongUrl(musicId)
 			if musicUrl != "" {
 				ctx.Session.MessageCreate(&khl.MessageCreate{
 					MessageCreateBase: khl.MessageCreateBase{
@@ -92,7 +92,7 @@ func messageHan(ctx *khl.KmarkdownMessageContext) {
 			}
 		})
 	case strings.HasPrefix(ctx.Common.Content, "-help"):
-		component.SubmitTask(func() {
+		component2.SubmitTask(func() {
 			ctx.Session.MessageCreate(&khl.MessageCreate{
 				MessageCreateBase: khl.MessageCreateBase{
 					Type:     khl.MessageTypeCard,
