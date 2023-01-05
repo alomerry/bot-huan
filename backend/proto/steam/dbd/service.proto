@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package bot_huan.steam.dbd;
+
+option go_package = ".;dbd";
+
+import "steam/dbd/dbd.proto";
+
+service DBDService {
+  rpc GetUserStatsForGame(GetUserStatsForGameRequest) returns (GetUserStatsForGameResponse);
+}

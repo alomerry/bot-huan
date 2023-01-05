@@ -1,8 +1,8 @@
 package component
 
 import (
-	"bot-huan/core/log"
-	"github.com/panjf2000/ants/v2"
+    "bot_huan/core/log"
+    "github.com/panjf2000/ants/v2"
 )
 
 var (

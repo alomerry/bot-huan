@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package bot_huan.steam.base;
+
+option go_package = ".;base";
+
+import "steam/base/base.proto";
+
+service BaseService {
+  rpc GetFriendList(GetFriendListRequest) returns (GetFriendListResponse);
+}

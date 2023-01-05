@@ -1,8 +1,8 @@
 package component
 
 import (
-	"bot-huan/core/log"
-	"encoding/json"
+    "bot_huan/core/log"
+    "encoding/json"
 	"io/ioutil"
 	"net/http"
 	"strconv"

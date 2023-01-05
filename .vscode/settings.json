@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "**/.fleet": true,
+        "**/.idea": true
+    }
+}

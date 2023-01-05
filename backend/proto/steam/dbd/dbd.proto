@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package bot_huan.steam.dbd;
+
+option go_package = ".;dbd";
+
+message GetUserStatsForGameRequest {
+
+}
+
+message GetUserStatsForGameResponse {
+
+}

@@ -1,0 +1,7 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: bot_huan.steam.base.BaseService.GetFriendList
+      get: /v0/steam/friendLists

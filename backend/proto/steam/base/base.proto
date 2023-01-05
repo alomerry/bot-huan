@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package bot_huan.steam.base;
+
+option go_package = ".;base";
+
+message GetFriendListRequest {
+  string steamId = 1; // valid:"required"
+}
+
+message GetFriendListResponse {
+  FriendsList friendsList = 1;
+}
+
+message FriendsList {
+  repeated RelatedPeople friends = 1;
+}
+
+message RelatedPeople {
+  string steamId = 1;
+  string relationship = 2;
+  uint64 friendSince = 3;
+}
