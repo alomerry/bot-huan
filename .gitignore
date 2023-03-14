@@ -1,5 +1,7 @@
 .fleet
 .idea
 
+**/*.DS_Store
+
 # WIP
 frontend/obschat
